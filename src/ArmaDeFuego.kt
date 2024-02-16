@@ -46,8 +46,12 @@ abstract class ArmaDeFuego(
         val cantidadARecargar = when (nombre){
             "Pistola" -> 1
             "Rifle" -> 2
-            else -> 3
+            "Bazooka" -> 3
+            "Casa" -> 4
+            "Coche" -> 5
+            else -> 6
         }
+
         if (cantidadMunicionExtra > 0 && municion <= 0){
             municion += cantidadARecargar
             cantidadMunicionExtra -= cantidadARecargar

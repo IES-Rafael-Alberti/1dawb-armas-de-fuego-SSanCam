@@ -11,7 +11,7 @@ open class Coche(municion: Int,
            danio: Int,
            radio: TipoRadio
 
-) : ArmaDeFuego("Ráfaga luminosa", municion, 1, tipoMunicion)  {
+) : ArmaDeFuego("Ráfaga luminosa", municion, 5, tipoMunicion)  {
     override var danio: Int = danio
         set(value) {
             requireDanio(value)

@@ -11,7 +11,7 @@ open class Bocadillo(municion: Int,
            danio: Int,
            radio: TipoRadio
 
-) : ArmaDeFuego("Bocadillo", municion, 1, tipoMunicion)  {
+) : ArmaDeFuego("Bocadillo", municion, 5, tipoMunicion)  {
     override var danio: Int = danio
         set(value) {
             requireDanio(value)

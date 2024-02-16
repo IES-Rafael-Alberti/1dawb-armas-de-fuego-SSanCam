@@ -86,15 +86,18 @@ while (cantidadMunicionExtra > 0) {
     println("Se acabaron las balas, nos vamos pa' casa.")
     pausa()
     */
+    val tiposDispersionPistola = listOf(TipoRadio.REDUCIDO, TipoRadio.CORTO)
+    val tiposDispersionRifle = listOf(TipoRadio.CORTO, TipoRadio.INTERMEDIO)
+    val tiposDispersionBazooka = listOf(TipoRadio.AMPLIO, TipoRadio.ENORME)
 
     //1. Genera aleatoriamente disparos, en este caso 9, para las armas de fuego y para tres clases más (Casa, Coche y Bocadillo).
     val armas = listOf(
         "Casa" to Casa(10, "Confetti", Random.nextInt(0, 1), TipoRadio.DISPERSION),
         "Coche" to Coche(20, "Luz", 0, TipoRadio.RAYO_LUZ),
         "Bocadillo" to Bocadillo(10, "Olor", Random.nextInt(20, 50), TipoRadio.OLOR),
-        "Pistola" to Pistola(5, "9mm", Random.nextInt(1, 5), TipoRadio.entries.toTypedArray().random()),
-        "Rifle" to Rifle(8, "7.72mm", Random.nextInt(5, 10), TipoRadio.entries.toTypedArray().random()),
-        "Bazooka" to Bazooka(6, "RPG", Random.nextInt(10, 30), TipoRadio.entries.toTypedArray().random())
+        "Pistola" to Pistola(5, "9mm", Random.nextInt(1, 5), tiposDispersionPistola.random()),
+        "Rifle" to Rifle(8, "7.72mm", Random.nextInt(5, 10), tiposDispersionRifle.random()),
+        "Bazooka" to Bazooka(6, "RPG", Random.nextInt(10, 30), tiposDispersionBazooka.random())
     )
     val disparos = (1..9).map { armas.random() to (1..6).random() }
 

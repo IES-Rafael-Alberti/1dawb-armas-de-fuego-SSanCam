@@ -11,7 +11,7 @@ open class Casa(municion: Int,
            danio: Int,
            radio: TipoRadio
 
-) : ArmaDeFuego("Confetti", municion, 1, tipoMunicion)  {
+) : ArmaDeFuego("Confetti", municion, 20, tipoMunicion)  {
     override var danio: Int = danio
         set(value) {
             requireDanio(value)
