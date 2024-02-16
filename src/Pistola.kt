@@ -1,3 +1,11 @@
+/**
+ * Clase que representa una pistola.
+ *
+ * @property municion La cantidad actual de munición de la pistola.
+ * @property tipoMunicion El tipo de munición de la pistola.
+ * @property danio El daño producido por la pistola.
+ * @property radio El radio de alcance de la pistola.
+ */
 class Pistola(municion: Int,
               tipoMunicion: String,
               danio: Int,

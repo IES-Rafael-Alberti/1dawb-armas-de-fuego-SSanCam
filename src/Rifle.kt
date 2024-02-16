@@ -1,3 +1,11 @@
+/**
+ * Clase que representa un rifle.
+ *
+ * @property municion La cantidad actual de munición del rifle.
+ * @property tipoMunicion El tipo de munición del rifle.
+ * @property danio El daño producido por el rifle.
+ * @property radio El radio de alcance del rifle.
+ */
 class Rifle(municion: Int,
     tipoMunicion: String,
     danio: Int,

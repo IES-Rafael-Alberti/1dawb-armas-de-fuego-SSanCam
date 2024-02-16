@@ -1,5 +1,12 @@
 import kotlin.random.Random
-
+/**
+ * Clase abstracta que representa una arma de fuego genérica.
+ *
+ * @property nombre El nombre del arma de fuego.
+ * @property municion La cantidad actual de munición del arma.
+ * @property municionARestar La cantidad de municiones a restar al disparar.
+ * @property tipoDeMunicion El tipo de munición del arma.
+ */
 abstract class ArmaDeFuego(
     val nombre: String,
     var municion: Int,
@@ -17,6 +24,9 @@ abstract class ArmaDeFuego(
     }
 
     //MÉTODOS DE CLASE:
+    /**
+     * Método para disparar el arma.
+     */
     open fun disparar(){
         if (municion > 0 ){
             municion -= municionARestar
@@ -27,6 +37,9 @@ abstract class ArmaDeFuego(
         }
     }
 
+    /**
+     * Método para recargar el arma.
+     */
     open fun recarga() {
         val cantidadARecargar = when (nombre){
             "Pistola" -> 1
@@ -43,6 +56,9 @@ abstract class ArmaDeFuego(
     }
 
     //MOSTRAR INFORMACIÓN:
+    /**
+     * Representación textual del arma de fuego.
+     */
     override fun toString(): String {
         return "Nombre: $nombre, Munición: $municion, Tipo de munición : $tipoDeMunicion, daño: $danio, Radio: ${radio.desc}"
     }

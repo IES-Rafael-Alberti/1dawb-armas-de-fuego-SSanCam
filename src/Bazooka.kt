@@ -1,3 +1,11 @@
+/**
+ * Clase que representa un bazooka.
+ *
+ * @property municion La cantidad actual de munición del bazooka.
+ * @property tipoMunicion El tipo de munición del bazooka.
+ * @property danio El daño producido por el bazooka.
+ * @property radio El radio de alcance del bazooka.
+ */
 class Bazooka(municion: Int,
               tipoMunicion: String,
               danio: Int,
