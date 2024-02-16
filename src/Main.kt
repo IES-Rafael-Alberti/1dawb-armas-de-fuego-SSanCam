@@ -89,9 +89,9 @@ while (cantidadMunicionExtra > 0) {
 
     //1. Genera aleatoriamente disparos, en este caso 9, para las armas de fuego y para tres clases más (Casa, Coche y Bocadillo).
     val armas = listOf(
-        Casa(10, "Confetti", Random.nextInt(0, 1), TipoRadio.DISPERSION),
-        Coche(20, "Luz", 0, TipoRadio.RAYO_LUZ),
-        Bocadillo(10, "Olor", Random.nextInt(20, 50), TipoRadio.OLOR),
+        "Casa" to Casa(10, "Confetti", Random.nextInt(0, 1), TipoRadio.DISPERSION),
+        "Coche" to Coche(20, "Luz", 0, TipoRadio.RAYO_LUZ),
+        "Bocadillo" to Bocadillo(10, "Olor", Random.nextInt(20, 50), TipoRadio.OLOR),
         "Pistola" to Pistola(5, "9mm", Random.nextInt(1, 5), TipoRadio.entries.toTypedArray().random()),
         "Rifle" to Rifle(8, "7.72mm", Random.nextInt(5, 10), TipoRadio.entries.toTypedArray().random()),
         "Bazooka" to Bazooka(6, "RPG", Random.nextInt(10, 30), TipoRadio.entries.toTypedArray().random())
@@ -106,6 +106,7 @@ while (cantidadMunicionExtra > 0) {
         for ((index, disparo) in disparos.withIndex()) {
             println("Disparo Nº${index + 1}")
             val arma = disparo.first.second
+
             for (tiro in 1..disparo.second) {
                 println("**QUEDAN $cantidadMunicionExtra BALAS EXTRAS!!")
                 espacio()
