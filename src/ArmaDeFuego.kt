@@ -28,6 +28,7 @@ abstract class ArmaDeFuego(
      * Método para disparar el arma.
      */
     open fun disparar(){
+        println("$nombre dispara>> PIUM!!")
         if (municion > 0 ){
             municion -= municionARestar
             if (municion < 0 ){
@@ -41,17 +42,16 @@ abstract class ArmaDeFuego(
      * Método para recargar el arma.
      */
     open fun recarga() {
+        println("$nombre intenta recargar.")
         val cantidadARecargar = when (nombre){
             "Pistola" -> 1
             "Rifle" -> 2
             else -> 3
         }
-        if (cantidadMunicionExtra > 0 && municion == 0){
+        if (cantidadMunicionExtra > 0 && municion <= 0){
             municion += cantidadARecargar
             cantidadMunicionExtra -= cantidadARecargar
-            if (cantidadMunicionExtra < 0){
-                cantidadMunicionExtra = 0
-            }
+            cantidadMunicionExtra = maxOf(0, cantidadMunicionExtra) // Restablecer a 0 si es negativo
         }
     }
 
