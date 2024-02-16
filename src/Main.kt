@@ -17,7 +17,7 @@ fun main() {
         "Rifle" to Rifle(8, "7.72mm", Random.nextInt(5, 10), TipoRadio.entries.toTypedArray().random()),
         "Bazooka" to Bazooka(6, "RPG", Random.nextInt(10, 30), TipoRadio.entries.toTypedArray().random())
     )
-    //CAJA DE MUNICION PARA RECARGA:
+    //CAJA DE MUNICION EXTRA PARA TODAS LAS ARMAS:
     val cajaMunicionExtra = cantidadMunicionExtra
 
     /*
@@ -48,9 +48,9 @@ while (cantidadMunicionExtra > 0) {
     }
 } */
 
-    //Deben dispararse 12 armas, cada una entre 1 y 3 veces... muestra también un mensaje que identifique cada comienzo de los 12 disparos
+    /*//Deben dispararse 12 armas, cada una entre 1 y 3 veces... muestra también un mensaje que identifique cada comienzo de los 12 disparos
 
-    /*// MAPA QUE REGISTRA ALEATORIAMENTE DE 1-3 DISPAROS POR CADA ARMA DE UN GRUPO DE 12
+    // MAPA QUE REGISTRA ALEATORIAMENTE DE 1-3 DISPAROS POR CADA ARMA DE UN GRUPO DE 12
     val disparos = (1..12).map { armero.random() to (1..3).random() }
     //DISPARAMOS Y RECARGAMOS LAS ARMAS, CUANDO SEA NECESARIO.
     println("Hay $cantidadMunicionExtra balas extras para todas las armas.")
@@ -81,11 +81,48 @@ while (cantidadMunicionExtra > 0) {
         }
 
     }
+
     espacio()
     println("Se acabaron las balas, nos vamos pa' casa.")
     pausa()
     */
 
     //1. Genera aleatoriamente disparos, en este caso 9, para las armas de fuego y para tres clases más (Casa, Coche y Bocadillo).
+    val armas = listOf(
+        Casa(10, "Confetti", Random.nextInt(0, 1), TipoRadio.DISPERSION),
+        Coche(20, "Luz", 0, TipoRadio.RAYO_LUZ),
+        Bocadillo(10, "Olor", Random.nextInt(20, 50), TipoRadio.OLOR),
+        "Pistola" to Pistola(5, "9mm", Random.nextInt(1, 5), TipoRadio.entries.toTypedArray().random()),
+        "Rifle" to Rifle(8, "7.72mm", Random.nextInt(5, 10), TipoRadio.entries.toTypedArray().random()),
+        "Bazooka" to Bazooka(6, "RPG", Random.nextInt(10, 30), TipoRadio.entries.toTypedArray().random())
+    )
+    val disparos = (1..9).map { armas.random() to (1..6).random() }
 
+    println("Hay $cantidadMunicionExtra balas extras para todas las armas.")
+    pausa()
+    espacio()
+
+    while (cantidadMunicionExtra > 0) {
+        for ((index, disparo) in disparos.withIndex()) {
+            println("Disparo Nº${index + 1}")
+            val arma = disparo.first.second
+            for (tiro in 1..disparo.second) {
+                println("**QUEDAN $cantidadMunicionExtra BALAS EXTRAS!!")
+                espacio()
+                if (arma.municion != 0) {
+                    arma.disparar()
+                    println(arma.toString())
+                    espacio()
+                    pausa()
+
+                } else {
+                    println("${arma.nombre} ha agotado su munición y tiene que recargar.")
+                    arma.recarga()
+                    println(arma.toString())
+                    espacio()
+                    pausa()
+                }
+            }
+        }
+    }
 }
